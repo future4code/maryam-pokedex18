@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "f5df65d5-1764-409d-96a1-5ab431cfd282",
+		"name": "PokeAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetPokemon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/?limit=151",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "151"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPokemonEvolutionChains",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/evolution-chain/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"evolution-chain",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPokemonGeneration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/generation/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"generation",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
