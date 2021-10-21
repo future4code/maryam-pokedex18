@@ -1,10 +1,25 @@
-import React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import React            from 'react';
+import {useParams}      from 'react-router-dom';
+import useRequestData   from "../Hooks/useRequestData";
+import {useHistory}     from 'react-router-dom';
+
+
+import Typography       from '@mui/material/Typography';
+import Box              from '@mui/material/Box';
+import Button           from '@mui/material/Button';
 
 
 export default function Detalhes() {
+    const history   =   useHistory()
+    const params    =   useParams()
+    const pokemon   =   useRequestData(`https://pokeapi.co/api/v2/pokemon/${params.nome}`,{});
+
+
+
+    const goBack = () => {
+        history.push('/')
+    }
+
     return (
 
         <Box
@@ -24,15 +39,18 @@ export default function Detalhes() {
     
     
             <Typography variant="h1"> Detalhes </Typography>
-    
-    
-    
-    
+
             <Box sx={ {  marginTop: 50 }}>
-                <Typography variant="h6">Renderização dos detalhes  </Typography>
+                {console.log(pokemon)}
+
+                {pokemon.sprites.front_default  &&    <img src={pokemon.sprites.front_default} alt={'pokemon sprite de frente'} />}
+                {pokemon.name                   &&     <Typography variant="h6"> {pokemon.name}  </Typography>}
+
+
+
             </Box>
     
-            <Button>Voltar</Button>
+            <Button onClick={() => goBack()}>Voltar</Button>
         </Box>
     
     );

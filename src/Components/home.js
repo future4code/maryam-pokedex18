@@ -1,33 +1,35 @@
-import React, {useState,useEffect}  from 'react';
-import Typography                   from '@mui/material/Typography';
-import Box                          from '@mui/material/Box';
-import axios                        from "axios"
+import React            from 'react';
+import {useHistory}     from 'react-router-dom';
+import Typography       from '@mui/material/Typography';
+import Box              from '@mui/material/Box';
+import useRequestData   from '../Hooks/useRequestData';
+//import ImageListItemBar             from '@mui/material/ImageListItemBar';
+
 
 
 export default function Home() {
+  const history = useHistory()
 
-  const [pokeLista,changePoke] = useState([])
-
-
-  const pegaPokemon = () => {
-
-
-    let i = 1
-    let pokemon = []
-
-
-
-
-    changePoke(pokemon)
-
+  const gotoDetail = (name) => {
+    history.push(`/detalhes/${name}`)
   }
 
 
-  useEffect( () => {
-    pegaPokemon()
-}, [])
 
-  return (
+  const URL                 =   'https://pokeapi.co/api/v2/pokemon?offset=0&limit=20'
+  const pokemonsList        =   useRequestData(URL,[])
+
+  const pokemonsComponents  =   
+    pokemonsList.results  &&
+    pokemonsList.results.map(  (poke) =>  {
+      return <button onClick = {() => gotoDetail(poke.name)} key={poke.name}> {poke.name}</button>
+  });
+
+
+
+
+  
+  return(
 
     <Box
     sx={ { 
@@ -42,21 +44,17 @@ export default function Home() {
         p:              -0,
         
     }}>
-      <br/>
+    <br/>
+    
+        <Typography variant="h1">Pokedex </Typography>
 
-      <Typography variant="h1">Lista de Pokémons  </Typography>
-
-
-
-
-      <Box sx={ {  marginTop: 50 }}>
-        <Typography variant="h6">Renderização da lista  </Typography>
-      </Box>
-
-
-
-      {    console.log(pokeLista.name) }
+    
+    
+    
+        <Box sx= { {  marginTop: 50 }}>
+            <Typography variant="h6">{pokemonsComponents} </Typography>
+        </Box>
+    
     </Box>
-
   );
-}
+};
