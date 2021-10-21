@@ -25,7 +25,7 @@ function Router() {
                 </Route>
 
 
-                <Route exact path={"/detalhes"}>
+                <Route exact path={"/detalhes/:nome"}>
                     <Detalhes />
                 </Route>
 
