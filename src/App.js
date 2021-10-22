@@ -35,9 +35,23 @@ const theme = createTheme({
       },
     },
 
-    h6: {
+    h3: {
       color:'#ffffff', 
-      fontSize: '1.8rem',
+      fontWeight: 500,
+      fontSize: '2rem',
+      '@media (min-width:800px)': {
+        fontSize: '2rem',
+      },
+      '@media (max-width:800px)': {
+        fontSize: '2rem',
+      },
+    },
+
+
+    h6: {
+      color:'#ffffff',
+      fontWeight: 100, 
+      fontSize: '1.5rem',
     },
 
   },
