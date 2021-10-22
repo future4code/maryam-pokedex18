@@ -11,7 +11,14 @@ const PokeCard = (props) =>{
     return (
         <Box>
 
-            <Box> 
+            <Box
+            sx={ { 
+                bgcolor: 'primary.lighter',
+                width:          '100%',
+                height:         '100vh',
+
+            }}> 
+
                 <Avatar alt={props.name} src={props.photo}  sx={{ width: 48, height: 48 }} />
             </Box>
 
