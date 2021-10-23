@@ -54,6 +54,11 @@ const theme = createTheme({
       fontSize: '1.5rem',
     },
 
+    h7: {
+      color:'#ffffff',
+      fontWeight: 100, 
+      fontSize: '0rem',
+    },
   },
 
   components: {
@@ -77,7 +82,7 @@ const theme = createTheme({
       main: '#ffffff',
     },
     info:{
-      main: '#000000',
+      main: '#300606',
     },
   },
 });
